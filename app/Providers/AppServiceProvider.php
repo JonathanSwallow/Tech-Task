@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Http\Services\NetworkServices\BaseNetworkService;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,9 +18,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(BaseNetworkService::class, function () {
             $type = request()->input('type', '');
-            Log::error('hello I am here');
-            Log::error('this was passed '.$type);
-
             if (empty($type)) {
                 abort(422, 'A type must be specified');
             }

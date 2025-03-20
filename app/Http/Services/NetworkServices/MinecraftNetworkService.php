@@ -14,7 +14,7 @@ class MinecraftNetworkService extends BaseNetworkService
         return [
             'username' => $response->name,
             'id' => $response->id,
-            'avatar' => 'https://crafatar.com/avatars'.$response->id,
+            'avatar' => 'https://crafatar.com/avatars/'.$response->id,
         ];
     }
 
